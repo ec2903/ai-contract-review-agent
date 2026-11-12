@@ -1,0 +1,89 @@
+# Contract Review Rulebook
+#
+# This file IS the review policy. Every range, threshold and definition the
+# reviewer applies lives here as data - not in code and not in the prompt.
+# Changing a policy is a one-line, reviewable diff to this file.
+#
+# All values are fictional and exist only to demonstrate the design.
+
+version: "2026.1"
+currency: USD
+
+# Average annual commitment tiers (USD). The tier drives which discount band applies.
+commitment_tiers:
+  - {name: T1, min: 0,         max: 499999}
+  - {name: T2, min: 500000,    max: 1999999}
+  - {name: T3, min: 2000000,   max: 9999999}
+  - {name: T4, min: 10000000,  max: null}
+
+# Approved platform-wide discount bands, percent [min, max], by term (years) x tier.
+platform_discount_bands:
+  1: {T1: [0, 4],  T2: [2, 6],  T3: [4, 8],   T4: [6, 10]}
+  2: {T1: [1, 5],  T2: [3, 8],  T3: [5, 10],  T4: [7, 12]}
+  3: {T1: [2, 6],  T2: [4, 10], T3: [6, 12],  T4: [8, 15]}
+
+# Approved product-specific discount bands, percent [min, max].
+product_bands:
+  compute:
+    # by tier (average annual commitment)
+    by: tier
+    bands: {T1: [0, 8], T2: [5, 12], T3: [8, 16], T4: [10, 20]}
+  storage:
+    # by term (years) x committed storage volume (TB)
+    by: term_and_volume
+    volume_tiers_tb:
+      - {name: V1, min: 0,    max: 99}
+      - {name: V2, min: 100,  max: 499}
+      - {name: V3, min: 500,  max: 1999}
+      - {name: V4, min: 2000, max: null}
+    bands:
+      1: {V1: [0, 10],  V2: [5, 14],  V3: [8, 18],  V4: [10, 22]}
+      2: {V1: [2, 12],  V2: [7, 16],  V3: [10, 20], V4: [12, 24]}
+      3: {V1: [4, 14],  V2: [9, 18],  V3: [12, 22], V4: [14, 26]}
+
+# A rate is an OUTLIER only when BOTH are true:
+#   1. it is above the band maximum, and
+#   2. it is more than `materiality_points` above the platform-wide discount.
+# A rate above band but close to the platform discount is noted, not escalated.
+outlier:
+  materiality_points: 5
+
+# Commitment categories - exactly one per agreement.
+commitment_categories:
+  - No Commitment
+  - Annual - All Years
+  - Annual - Some Years
+  - Term Only
+  - Term + Annual
+
+# Upfront payment types - exactly one per agreement.
+upfront_types:
+  - None
+  - Full Upfront
+  - Annual Prepay
+  - Partial Upfront
+
+# Language that does NOT create a binding commitment.
+non_binding_phrases:
+  - "expects to spend"
+  - "anticipated spend"
+  - "good faith estimate"
+  - "target usage"
+  - "non-binding forecast"
+
+# Language that indicates a binding commitment.
+binding_indicators:
+  - "shall pay any shortfall"
+  - "true-up"
+  - "minimum commitment"
+  - "committed spend"
+
+# Zero-commitment agreement: termination for convenience, OR
+# no commitment AND no platform-wide discount.
+zero_commitment:
+  termination_for_convenience: true
+  no_commitment_and_no_discount: true
+
+# A page with fewer extracted characters than this is treated as image-only
+# (scanned) and its terms are reported as missing rather than guessed.
+scanned_page_min_chars: 40

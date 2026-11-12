@@ -1,0 +1,25 @@
+{
+  "file_name": "CRA-2026-0105 - Harbor Studio.pdf",
+  "agreement_id": "CRA-2026-0117",
+  "customer_name": "Harbor Studio Group Ltd.",
+  "start_date": "2026-12-01",
+  "end_date": "2027-11-30",
+  "platform_discount_pct": 4,
+  "annual_commitments": [],
+  "term_commitment": 300000,
+  "commitment_language": "binding",
+  "upfront_payments": [],
+  "product_rates": [],
+  "termination_for_convenience": false,
+  "credits": [],
+  "evidence": {
+    "start_date": "Section 1.1, p.1",
+    "end_date": "Section 1.1, p.1",
+    "platform_discount_pct": "Section 2.1, p.1",
+    "termination_for_convenience": "Section 6.1, p.2"
+  },
+  "uncertain": [
+    "Document title shows agreement CRA-2026-0117, not the row's agreement."
+  ],
+  "observations": []
+}

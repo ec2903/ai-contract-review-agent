@@ -1,0 +1,47 @@
+{
+  "file_name": "CRA-2026-0104 - Orbit Freight.pdf",
+  "agreement_id": "CRA-2026-0104",
+  "customer_name": "Orbit Freight Co.",
+  "start_date": "2027-01-01",
+  "end_date": "2029-12-31",
+  "platform_discount_pct": 12,
+  "annual_commitments": [
+    2000000,
+    2000000,
+    2000000
+  ],
+  "term_commitment": 9000000,
+  "commitment_language": "binding",
+  "upfront_payments": [
+    {
+      "year": 1,
+      "amount": 1000000
+    }
+  ],
+  "product_rates": [
+    {
+      "product": "compute",
+      "discount_pct": 17,
+      "committed_tb": null
+    },
+    {
+      "product": "storage",
+      "discount_pct": 19,
+      "committed_tb": 600
+    }
+  ],
+  "termination_for_convenience": false,
+  "credits": [],
+  "evidence": {
+    "start_date": "Section 1.1, p.1: \"begins on January 1, 2027\"",
+    "end_date": "Section 1.1, p.1: \"ends on December 31, 2029\"",
+    "platform_discount_pct": "Section 2.1, p.1: \"a discount of 12%\"",
+    "annual_commitments": "Section 3.1, p.1: \"minimum commitment of $2,000,000 in each Contract Year\"",
+    "term_commitment": "Section 3.2, p.1: \"total committed spend of $9,000,000 over the Term\"",
+    "termination_for_convenience": "Section 6.1, p.2: \"terminate for material breach only\""
+  },
+  "uncertain": [],
+  "observations": [
+    "Term commitment exceeds the sum of the annual minimums."
+  ]
+}

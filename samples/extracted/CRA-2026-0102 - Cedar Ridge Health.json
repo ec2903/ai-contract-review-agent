@@ -1,0 +1,44 @@
+{
+  "file_name": "CRA-2026-0102 - Cedar Ridge Health.pdf",
+  "agreement_id": "CRA-2026-0102",
+  "customer_name": "Cedar Ridge Health Partners, Inc.",
+  "start_date": "2026-11-01",
+  "end_date": "2028-10-31",
+  "platform_discount_pct": 6,
+  "annual_commitments": [
+    2500000,
+    2500000
+  ],
+  "term_commitment": null,
+  "commitment_language": "binding",
+  "upfront_payments": [
+    {
+      "year": 1,
+      "amount": 2500000
+    },
+    {
+      "year": 2,
+      "amount": 2500000
+    }
+  ],
+  "product_rates": [
+    {
+      "product": "compute",
+      "discount_pct": 22,
+      "committed_tb": null
+    }
+  ],
+  "termination_for_convenience": false,
+  "credits": [],
+  "evidence": {
+    "start_date": "Section 1.1, p.1: \"begins on November 1, 2026\"",
+    "end_date": "Section 1.1, p.1: \"ends on October 31, 2028\"",
+    "platform_discount_pct": "Section 2.1, p.1: \"a discount of 6%\"",
+    "annual_commitments": "Section 3.1, p.1: \"commits to the committed spend ... annual true-up\"",
+    "termination_for_convenience": "Section 6.1, p.2: \"may not terminate for convenience\""
+  },
+  "uncertain": [],
+  "observations": [
+    "Each year's commitment is prepaid in full."
+  ]
+}

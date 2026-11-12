@@ -1,0 +1,26 @@
+{
+  "file_name": "CRA-2026-0103 - Lumen Public Library District.pdf",
+  "agreement_id": "CRA-2026-0103",
+  "customer_name": "Lumen Public Library District",
+  "start_date": "2026-11-15",
+  "end_date": "2027-11-14",
+  "platform_discount_pct": 3,
+  "annual_commitments": [],
+  "term_commitment": null,
+  "commitment_language": "non_binding",
+  "upfront_payments": [],
+  "product_rates": [],
+  "termination_for_convenience": true,
+  "credits": [],
+  "evidence": {
+    "start_date": "Section 1.1, p.1: \"begins on November 15, 2026\"",
+    "end_date": "Section 1.1, p.1: \"ends on November 14, 2027\"",
+    "platform_discount_pct": "Section 2.1, p.1: \"a discount of 3%\"",
+    "commitment_language": "Section 3.1, p.1: \"anticipated spend ... good faith estimate only\"",
+    "termination_for_convenience": "Section 6.1, p.2: \"may terminate this Agreement for convenience on 60 days' written notice\""
+  },
+  "uncertain": [],
+  "observations": [
+    "Public-sector customer; spend figure is a non-binding estimate."
+  ]
+}

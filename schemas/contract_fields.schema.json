@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contract extraction",
+  "description": "What the agent reads out of ONE contract. The agent only extracts and cites; every determination (tier, band, outlier, category) is computed by code from the rulebook.",
+  "type": "object",
+  "required": ["file_name", "agreement_id", "customer_name", "start_date", "end_date",
+               "platform_discount_pct", "annual_commitments", "term_commitment",
+               "commitment_language", "upfront_payments", "product_rates",
+               "termination_for_convenience", "credits", "evidence", "uncertain", "observations"],
+  "properties": {
+    "file_name": {"type": "string", "description": "PDF file name the text came from."},
+    "agreement_id": {"type": ["string", "null"], "description": "Agreement ID as printed IN the document (used to catch a wrong PDF filed under a row)."},
+    "customer_name": {"type": "string"},
+    "start_date": {"type": ["string", "null"], "format": "date"},
+    "end_date": {"type": ["string", "null"], "format": "date"},
+    "platform_discount_pct": {"type": ["number", "null"], "description": "Whole number, e.g. 8 for 8%."},
+    "annual_commitments": {"type": "array", "items": {"type": "number"}, "description": "Committed spend per contract year, in order. Empty if none."},
+    "term_commitment": {"type": ["number", "null"], "description": "A separate whole-term commitment, only if the contract states one."},
+    "commitment_language": {"enum": ["binding", "non_binding", "none"]},
+    "upfront_payments": {"type": "array", "items": {"type": "object", "properties": {"year": {"type": "integer"}, "amount": {"type": "number"}}}},
+    "product_rates": {"type": "array", "items": {"type": "object",
+      "properties": {"product": {"enum": ["compute", "storage"]}, "discount_pct": {"type": "number"}, "committed_tb": {"type": ["number", "null"]}}}},
+    "termination_for_convenience": {"type": ["boolean", "null"]},
+    "credits": {"type": "array", "items": {"type": "object", "properties": {"type": {"type": "string"}, "amount": {"type": "number"}}}},
+    "evidence": {"type": "object", "description": "Field name -> 'Section X, p.N: \"quoted clause\"'. Required for every non-null key value.", "additionalProperties": {"type": "string"}},
+    "uncertain": {"type": "array", "items": {"type": "string"}, "description": "Anything the agent could not determine with confidence. Never guess - flag here instead."},
+    "observations": {"type": "array", "items": {"type": "string"}, "description": "Short plain-English observations for the summary paragraph."}
+  }
+}
